@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 """Windows + Chrome window discovery, focus, Airtest connect.
-
-Compatible with AirtestIDE Python 3.6 and qb_env 3.13.
 """
 from __future__ import print_function
 

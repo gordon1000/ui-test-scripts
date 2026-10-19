@@ -30,7 +30,8 @@ Preferred::
            | middleleft | center | middleright
            | bottomleft | bottommiddle | bottomright
 
-- ``dismiss_popups`` — if True (default):
+- ``dismiss_popups`` — default **False** (plain find + single click, no
+  popup handling). If True:
   (1) target **missing** and **required=True** → after grace, walk
   next_stage → ok → close;
   (1b) target **missing** and **required=False** → after grace, **return
@@ -334,7 +335,7 @@ class NewTemplate(object):
           ``middleleft``, ``center``, ``middleright``,
           ``bottomleft``, ``bottommiddle``, ``bottomright``
     dismiss_popups : bool
-        If True (default), missing target may walk the common dismiss list
+        Default False. If True, missing target may walk the common dismiss list
         (next_stage → ok → close; never OK while Next Stage visible — see
         docs/dismiss-popup-scenarios.md §0). Target is polled first (pre-dismiss
         grace); after a dismiss, target is polled again (post-dismiss window)
@@ -380,7 +381,7 @@ class NewTemplate(object):
         required=True,
         raise_on_miss=None,
         which="best",
-        dismiss_popups=True,
+        dismiss_popups=False,
         dismiss_retry_delay=None,
         confirm=None,
         confirm_isCommon=None,
@@ -1058,7 +1059,7 @@ class NewTemplate(object):
     ):
         """Locate template; return ``(x, y)`` or ``None``.
 
-        If ``dismiss_popups`` (default True)::
+        If ``dismiss_popups`` (default False; True enables the following)::
 
             A. **Target found + next_stage/ok** — dimmed under a victory/result
                overlay; clear overlay then re-find. Co-visible **Close** alone
@@ -1756,7 +1757,7 @@ class NewTemplate(object):
 
         Returns **True** if clicked, **False** if not found.
 
-        When ``dismiss_popups`` is True (default)::
+        When ``dismiss_popups`` is True (default False)::
 
             if target missing: after grace, walk next_stage → ok → close
             if target found under next_stage/ok: clear overlay, re-find

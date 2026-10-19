@@ -18,8 +18,8 @@ One import for everything::
     common.battle(confirm="IdleBattle.png", confirm_isCommon=True)  # Common HUD
 
 **Script authoring (default):** do **not** call ``common.ok()`` / ``common.close()``
-for result, claim, or promo chrome. Default ``dismiss_popups=True`` on real
-controls already walks **next_stage → ok → close**. Explicit ok/close use
+for result, claim, or promo chrome. Pass ``dismiss_popups=True`` on real
+controls (default is False) so they walk **next_stage → ok → close**. Explicit ok/close use
 ``dismiss_popups=False`` (raw single tap) and **race** the dismiss stack —
 double handling, wrong layer, S6 order bugs. Prefer only non-chrome actions
 (tabs, rows, chests, Collect, Battle, Back). See

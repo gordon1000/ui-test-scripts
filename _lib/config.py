@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 """Calibration and runtime flags. See docs/calibration.md.
-
-Compatible with AirtestIDE bundled Python 3.6 and qb_env 3.13.
 """
 from __future__ import print_function
 
@@ -53,10 +51,10 @@ def common_tpl(*parts):
 
 
 # --- Chrome / game window identity ---
-GAME_PAGE_TITLE = "Queen's Blade Limit Break | Game Start - G123.jp"
+GAME_PAGE_TITLE = "Break | Start"
 WINDOW_TITLE_SUBSTRINGS = [
-    "Queen's Blade Limit Break",
-    "G123",
+    "Limit Break",
+    "G",
 ]
 
 # --- Pinned geometry (PMR conversion baseline; prefer live GetWindowRect at runtime) ---
