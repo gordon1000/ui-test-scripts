@@ -1,0 +1,34 @@
+{
+  "name": "example_home_collect",
+  "description": "Example: navigate Home then run a few collect scripts. Edit on_error per step.",
+  "defaults": {
+    "on_error": "abort",
+    "max_retries": 0,
+    "retry_delay": 2.0
+  },
+  "steps": [
+    {
+      "script": "screens/Common/Home.air",
+      "name": "Home",
+      "on_error": "retry",
+      "max_retries": 1
+    },
+    {
+      "script": "screens/Home/Tasks/Home-Tasks-collect.air",
+      "name": "Home-Tasks-collect",
+      "on_error": "continue",
+      "max_retries": 0
+    },
+    {
+      "script": "screens/Home/Market/Home-Market-collect.air",
+      "name": "Home-Market-collect",
+      "on_error": "continue"
+    },
+    {
+      "script": "screens/Home/Benefit/Home-Benefit-collect.air",
+      "name": "Home-Benefit-collect",
+      "on_error": "retry",
+      "max_retries": 1
+    }
+  ]
+}
