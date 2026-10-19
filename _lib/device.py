@@ -9,7 +9,7 @@ import time
 from . import config
 
 
-def find_game_windows(title_substrings=None):
+def find_windows(title_substrings=None):
     """Return visible top-level windows whose title matches any substring."""
     import win32gui
 
@@ -146,7 +146,7 @@ def setup_windows_chrome(focus=True, require_window=True, size_tolerance=None):
 
     Returns (device, window_info dict).
     """
-    hits = find_game_windows()
+    hits = find_windows()
     if not hits:
         msg = (
             "No Chrome window matching %r. Open the game tab and re-run."
